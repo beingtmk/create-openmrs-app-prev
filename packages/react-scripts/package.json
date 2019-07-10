@@ -1,6 +1,6 @@
 {
   "name": "openmrs-react-scripts",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "description": "OpenMRS Configuration and scripts for Customizable Create React App",
   "repository": {
     "type": "git",
@@ -28,6 +28,15 @@
   },
   "types": "./lib/react-app.d.ts",
   "dependencies": {
+    "@openmrs/react-components": "^1.0.0",
+    "babel-polyfill": "^6.26.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "react-redux": "^7.1.0",
+    "redux-form": "^8.2.4",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^1.0.5",
+
     "@babel/core": "7.4.3",
     "@svgr/webpack": "4.2.0",
     "@typescript-eslint/eslint-plugin": "1.10.2",

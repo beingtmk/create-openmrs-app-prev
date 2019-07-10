@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
 import logo from './openmrs.logo';
 import './App.css';
+import { Accordion } from '@openmrs/react-components';
+
+const AccordionComponent = props => {
+  return (
+    <div>
+      <Accordion title="HIV"> 
+        Human Immuno Deficiency Virus
+      </Accordion>
+      <Accordion title="Polio"> 
+        Caused by a Deadly Virus
+      </Accordion>
+    </div>
+
+  );
+};
 
 class App extends Component {
 
@@ -29,6 +44,10 @@ class App extends Component {
            <b> Server Address: { serverAddress } </b><br/><br/>
            <b> Server Context Path: { serverContextPath } </b>
         </p>
+
+        {/* Testing that OpenMRS-React-Component is working! */}
+        <AccordionComponent />
+
       </div>
     );
   }
