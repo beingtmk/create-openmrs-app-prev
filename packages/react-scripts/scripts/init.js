@@ -221,11 +221,11 @@ module.exports = function(
   console.log(`Success! Created ${appName} at ${appPath}`);
 
 
-  // Test Edits
+  // Instructions to Set Up
+  console.log();
   console.log(chalk.red('VERY IMPORTANT:'));
-  console.log('Create a .env file at the root of your project with REACT_APP_EMPLOYEE_ID and REACT_APP_POSITION_ID');
-  console.log('  You can find these values in the company dashboard under application settings.');
-  console.log('  https://company.bamboohr.com/settings');
+  console.log('Create a .env file at the root of your project with REACT_APP_SERVER_ADDRESS and REACT_APP_SERVER_CONTEXT_PATH');
+  console.log('  These help the repository to connect to the Backend.');
   console.log();
 
   console.log('Inside that directory, you can run several commands:');

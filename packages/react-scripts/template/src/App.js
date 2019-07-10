@@ -1,33 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './openmrs.logo';
 import './App.css';
 
 class App extends Component {
 
   getEnvValues() {
-    if (!process.env.REACT_APP_EMPLOYEE_ID || !process.env.REACT_APP_POSITION_ID) {
-      throw new Error('Please define `REACT_APP_EMPLOYEE_ID` and `REACT_APP_POSITION_ID` in your .env file');
+    if (!process.env.REACT_APP_SERVER_ADDRESS || !process.env.REACT_APP_SERVER_CONTEXT_PATH) {
+      throw new Error('Please define `REACT_APP_SERVER_ADDRESS` and `REACT_APP_SERVER_CONTEXT_PATH` in your .env file');
     }
 
-    const employeeID = process.env.REACT_APP_EMPLOYEE_ID
-    const position = process.env.REACT_APP_POSITION_ID;
+    const serverAddress = process.env.REACT_APP_SERVER_ADDRESS
+    const serverContextPath = process.env.REACT_APP_SERVER_CONTEXT_PATH;
 
-    return { employeeID, position };
+    return { serverAddress, serverContextPath };
   }
 
   render() {
 
-    const { employeeID, position } = this.getEnvValues();
+    const { serverAddress, serverContextPath } = this.getEnvValues();
 
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to Unicode Labs</h2>
+          <h2>Welcome to OpenMRS React Components</h2>
         </div>
         <p className="App-intro">
-           <b> Employee ID: { employeeID } </b><br/><br/>
-           <b> Position: { position } </b>
+           <b> Server Address: { serverAddress } </b><br/><br/>
+           <b> Server Context Path: { serverContextPath } </b>
         </p>
       </div>
     );
