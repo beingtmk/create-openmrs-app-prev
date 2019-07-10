@@ -22,6 +22,8 @@ const spawn = require('react-dev-utils/crossSpawn');
 const { defaultBrowsers } = require('react-dev-utils/browsersHelper');
 const os = require('os');
 const verifyTypeScriptSetup = require('./utils/verifyTypeScriptSetup');
+const addOpenMRSComponents = require('./utils/addOpenMRSComponents');
+
 
 function isInGitRepository() {
   try {
@@ -204,6 +206,9 @@ module.exports = function(
     console.log('Initialized a git repository.');
   }
 
+  // Adding OpenMRS-React-Components to this repository!
+  addOpenMRSComponents();
+
   // Display the most elegant way to cd.
   // This needs to handle an undefined originalDirectory for
   // backward compatibility with old global-cli's.
@@ -249,12 +254,13 @@ module.exports = function(
 
   // Instructions to Set Up
   console.log();
-  console.log(chalk.red('VERY IMPORTANT:'));
-  console.log('Create a .env file at the root of your project with REACT_APP_SERVER_ADDRESS and REACT_APP_SERVER_CONTEXT_PATH');
-  console.log('These helps the repository to connect to the Backend.');
+  console.log(chalk.red('  VERY IMPORTANT:'));
+  console.log(`  ${chalk.cyan(`cp .env.example .env`)}`);
+  console.log('  Env variables helps this repository to connect to the Backend!');
   console.log();
 
   console.log(`  ${chalk.cyan(`${displayedCommand} start`)}`);
+
   if (readmeExists) {
     console.log();
     console.log(
