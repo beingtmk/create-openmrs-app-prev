@@ -220,14 +220,6 @@ module.exports = function(
   console.log();
   console.log(`Success! Created ${appName} at ${appPath}`);
 
-
-  // Instructions to Set Up
-  console.log();
-  console.log(chalk.red('VERY IMPORTANT:'));
-  console.log('Create a .env file at the root of your project with REACT_APP_SERVER_ADDRESS and REACT_APP_SERVER_CONTEXT_PATH');
-  console.log('  These help the repository to connect to the Backend.');
-  console.log();
-
   console.log('Inside that directory, you can run several commands:');
   console.log();
   console.log(chalk.cyan(`  ${displayedCommand} start`));
@@ -254,6 +246,14 @@ module.exports = function(
   console.log('We suggest that you begin by typing:');
   console.log();
   console.log(chalk.cyan('  cd'), cdpath);
+
+  // Instructions to Set Up
+  console.log();
+  console.log(chalk.red('VERY IMPORTANT:'));
+  console.log('Create a .env file at the root of your project with REACT_APP_SERVER_ADDRESS and REACT_APP_SERVER_CONTEXT_PATH');
+  console.log('These helps the repository to connect to the Backend.');
+  console.log();
+
   console.log(`  ${chalk.cyan(`${displayedCommand} start`)}`);
   if (readmeExists) {
     console.log();
@@ -263,6 +263,7 @@ module.exports = function(
       )
     );
   }
+
   console.log();
   console.log('Happy hacking!');
 };
