@@ -17,7 +17,7 @@ If something doesn’t work, please [file an issue](https://github.com/facebook/
 ### Running the Example app
 
 ```sh
-npx create-react-app test-app --scripts-version openmrs-react-scripts
+npx create-react-app test-app --scripts-version openmrs-react-scripts-example
 cd test-app
 cp .env.skeleton .env
 npm start
