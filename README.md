@@ -2,7 +2,7 @@
 
 # Create OpenMRS App [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/facebook/create-react-app/pulls)
 
-Create React apps based and [openmrs-react-components](https://github.com/openmrs/openmrs-react-components) with no build configuration.
+Create React apps based on [openmrs-react-components](https://github.com/openmrs/openmrs-react-components) with no build configuration.
 
 ## Overview
 
