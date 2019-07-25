@@ -255,7 +255,7 @@ module.exports = function(
   // Instructions to Set Up
   console.log();
   console.log(chalk.red('  VERY IMPORTANT:'));
-  console.log(`  ${chalk.cyan(`cp .env.example .env`)}`);
+  console.log(`  ${chalk.cyan(`cp .env.skeleton .env`)}`);
   console.log('  Env variables helps this repository to connect to the Backend!');
   console.log();
 
