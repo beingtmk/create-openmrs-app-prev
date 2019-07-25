@@ -68,8 +68,12 @@ class App extends Component {
 
         <div>
           <h1>
-            Index of Components
+            Minimal Configuration Repository
           </h1>
+
+          <p>
+            You can open the current directory in your favourite editor and start coding!
+          </p>
 
         </div>
 
