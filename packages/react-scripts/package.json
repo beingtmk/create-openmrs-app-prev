@@ -1,6 +1,6 @@
 {
-  "name": "openmrs-react-scripts-example",
-  "version": "3.0.9",
+  "name": "openmrs-react-scripts",
+  "version": "3.0.10",
   "description": "OpenMRS Configuration and scripts for Customizable Create React App",
   "repository": {
     "type": "git",
