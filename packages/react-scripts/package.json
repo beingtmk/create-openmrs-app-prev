@@ -28,7 +28,7 @@
   },
   "types": "./lib/react-app.d.ts",
   "dependencies": {
-    "@openmrs/react-components": "beingtmk/openmrs-react-components",
+    "@openmrs/react-components": "^1.0.0",
 
     "babel-polyfill": "^6.26.0",
     "enzyme": "^3.10.0",
