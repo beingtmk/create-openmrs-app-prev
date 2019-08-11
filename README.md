@@ -34,10 +34,56 @@ npm start
 ## How to contribute:
 
 #### Setup locally
-...
+
+```
+cd <Path_TO_THIS_REPOSITORY>
+yarn
+```
+
+Make the changes you want to make then run,
+
+```
+yarn create-react-app test-app
+```
+
+This command builds a local copy of create-react-app, integrating your changes, then uses it to create a test-app project.
+
+If all goes well, you can now explore the resulting test-app folder and try running the project locally:
+
+```
+cd test-app
+yarn start
+```
+
 
 #### Associated files
-...
+
+This Repository differs from that of the CRA in terms of react-scripts.
+
+Browse to packages/react-scripts in your editor. You’ll see a few key files and folders inside.
+
+```
+config – contains configuration for Jest, webpack builds and dev server
+
+scripts – the scripts available for running in a create-react-app project, such as yarn start and yarn build
+
+template – the files you actually see when you’ve run 
+
+create-react-app – the base of every new project
+```
+
+**Note:** The file gitignore instead of .gitignore – this is to avoid ignoring files from the template itself, but will be automatically renamed when generating a project
+package.json – describes this package and its dependencies
+
 
 #### Publish to npm package
-...
+
+When you’re happy with your changes, you just need to publish them to npm. This makes them publicly available and ready for consumption by anybody using create-react-app.
+
+Navigate back to the packages/react-scripts directory.
+
+**Note:** you’ll also need to increment the version number.
+
+```
+npm publish
+```
