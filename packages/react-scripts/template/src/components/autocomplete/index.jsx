@@ -1,17 +1,19 @@
 import React from 'react';
 
-import { AutoComplete } from 'antd';
+import { Autocomplete } from '@openmrs/react-components';
+import ComponentContainer from '../demo/ComponentContainer';
 
 function onSelect(value) {
   console.log('onSelect', value);
 }
 
-export default class Autcomplete extends React.Component {
+class Autcomplete extends React.Component {
   state = {
     dataSource: [],
   };
 
   handleSearch = value => {
+    console.log(value);
     this.setState({
       dataSource: !value ? [] : [value, value + value, value + value + value],
     });
@@ -21,10 +23,9 @@ export default class Autcomplete extends React.Component {
     const { dataSource } = this.state;
     return (
       <div>
-        <h1>Auto Complete Component</h1><hr />
-        <AutoComplete
+        <Autocomplete
           dataSource={dataSource}
-          onSearch={this.handleSearch}
+          handleSearch={this.handleSearch}
           onSelect={onSelect}
           placeholder="input here"
           style={{ width: 200 }}
@@ -33,3 +34,45 @@ export default class Autcomplete extends React.Component {
     );
   }
 }
+
+const OverviewComponent = () => {
+
+    return (
+      <div>
+        Overview of the Component
+      </div>
+    );
+  }
+  
+  const CodeComponent = () => {
+  
+    return (
+      <div>
+        Code of the Component
+      </div>
+    );
+  }
+  
+  
+  const DemoComponent = () => {
+  
+    return (
+      <div>
+        <Autcomplete />
+      </div>
+    );
+  }
+
+  const DemoContainer = () => {
+  
+    return (
+        <ComponentContainer 
+            OverviewComponent={OverviewComponent}
+            CodeComponent={CodeComponent}
+            DemoComponent={DemoComponent}
+            componentName="Autocomplete Component"
+        />
+    );
+  }
+
+export default DemoContainer;

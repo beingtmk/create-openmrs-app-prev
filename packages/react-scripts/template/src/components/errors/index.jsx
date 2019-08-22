@@ -1,14 +1,13 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Errors, errorsActions as Actions } from '@openmrs/react-components';
+import { Errors } from '@openmrs/react-components';
+import ComponentContainer from '../demo/ComponentContainer';
 
 const ErrorsComponent = ({ state, dispatch }) => {
   return (
     <div>
-      <h1>Errors Component</h1><hr />
       <button onClick={() => {dispatch({ type: "ERROR", error: {message: `This is a new error!`} });}} >Add Error</button>
-
       <Errors/>
     </div>
   );
@@ -18,8 +17,45 @@ const mapStateToProps = (state) => ({
   state: state
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(Actions, dispatch)
-});
 
-export default connect(mapStateToProps)(ErrorsComponent);
+const ErrorsContainer = connect(mapStateToProps)(ErrorsComponent);
+
+const OverviewComponent = () => {
+
+    return (
+      <div>
+        Overview of the Component
+      </div>
+    );
+  }
+  
+  const CodeComponent = () => {
+  
+    return (
+      <div>
+        Code of the Component
+      </div>
+    );
+  }
+  
+  
+  const DemoComponent = () => {
+  
+    return (
+      <ErrorsContainer />
+    );
+  }
+
+  const DemoContainer = () => {
+  
+    return (
+        <ComponentContainer 
+            OverviewComponent={OverviewComponent}
+            CodeComponent={CodeComponent}
+            DemoComponent={DemoComponent}
+            componentName="Errors Component"
+        />
+    );
+  }
+
+export default DemoContainer;

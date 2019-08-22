@@ -1,15 +1,44 @@
 import React from 'react';
 
 import { LoadingView } from '@openmrs/react-components';
+import ComponentContainer from '../demo/ComponentContainer';
 
-const LoadingComponent = props => {
-  return (
-    <div>
-      <h1>Loading Component</h1><hr />
+const OverviewComponent = () => {
+
+    return (
+      <div>
+        Overview of the Component
+      </div>
+    );
+  }
+  
+  const CodeComponent = () => {
+  
+    return (
+      <div>
+        Code of the Component
+      </div>
+    );
+  }
+  
+  
+  const DemoComponent = () => {
+  
+    return (
       <LoadingView />
-    </div>
+    );
+  }
 
-  );
-};
+  const DemoContainer = () => {
+  
+    return (
+        <ComponentContainer 
+            OverviewComponent={OverviewComponent}
+            CodeComponent={CodeComponent}
+            DemoComponent={DemoComponent}
+            componentName="Loading Component"
+        />
+    );
+  }
 
-export default LoadingComponent;
+export default DemoContainer;

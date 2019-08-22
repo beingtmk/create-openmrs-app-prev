@@ -1,35 +1,47 @@
-import React, { Component } from 'react';
-import logo from './openmrs.logo';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
+import { Logout, LoadingView } from '@openmrs/react-components';
 import './App.css';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import reduxStore, { history } from './store';
+import Layout from './components/layout/Layout';
+import LoginPage from './components/login/LoginPage';
+import ComponentList from './components/demo/ComponentList';
 
-import ExampleIndex from './components/demo';
-import Accordion from './components/accordion/Accordion';
+import { ConnectedRouter } from 'connected-react-router';
+import { PersistGate } from 'redux-persist/lib/integration/react';
+import UserSession from './components/login/UserSession';
 
-class App extends Component {
+const { store, persistor } = reduxStore;
 
+const App = props => {
+  return (
+    <Provider store={store}>
+      <PersistGate loading={<LoadingView />} persistor={persistor}>
+        <UserSession />
+        <ConnectedRouter history={history}>
+          <Switch>
+            <Layout component={ComponentList} exact path="/" />
 
-  render() {
-    return (
-      <div className="App">
-   
-        <Router>
-          <Switch> 
-            <Route
-              component={ExampleIndex}
-              exact path="/"
+            <Route component={LoginPage} path="/login" />
+            <Route component={Logout} path="/logout" />
+
+            {/* Layout */}
+            <Layout
+              component={() => {
+                return (
+                  <div>
+                    This is a Basic Layout Component with Navbar and Footer
+                  </div>
+                );
+              }}
+              path="/layout"
             />
-
-            <Route
-              component={Accordion}
-              exact path="/accordion"
-            />  
           </Switch>
-        </Router>
-
-      </div>
-    );
-  }
-}
+        </ConnectedRouter>
+      </PersistGate>
+    </Provider>
+  );
+};
 
 export default App;

@@ -1,15 +1,11 @@
 import React from 'react';
+import { Upload } from '@openmrs/react-components';
+import { message } from 'antd';
+import ComponentContainer from '../demo/ComponentContainer';
 
-import { Upload, Icon, message } from 'antd';
+const UploadComponent = () => {
 
-const { Dragger } = Upload;
-
-const props = {
-  name: 'file',
-  multiple: true,
-  // this is the endpoint
-  action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-  onChange(info) {
+  const onChangeHandler = (info) => {
     const { status } = info.file;
     if (status !== 'uploading') {
       console.log(info.file, info.fileList);
@@ -19,22 +15,55 @@ const props = {
     } else if (status === 'error') {
       message.error(`${info.file.name} file upload failed.`);
     }
-  },
-};
+  }
 
-const UploadComponent = () => {
   return (
-    <Dragger {...props}>
-      <p className="ant-upload-drag-icon">
-        <Icon type="inbox" />
-      </p>
-      <p className="ant-upload-text">Click or drag file to this area to upload</p>
-      <p className="ant-upload-hint">
-        Support for a single or bulk upload.
-      </p>
-    </Dragger>
 
+    <Upload
+      onChange = {onChangeHandler}
+      action = 'https://www.mocky.io/v2/5cc8019d300000980a055e76'
+    />
   );
 };
 
-export default UploadComponent;
+const OverviewComponent = () => {
+
+    return (
+      <div>
+        Overview of the Component
+      </div>
+    );
+  }
+  
+  const CodeComponent = () => {
+  
+    return (
+      <div>
+        Code of the Component
+      </div>
+    );
+  }
+  
+  
+  const DemoComponent = () => {
+  
+    return (
+      <div>
+        <UploadComponent />
+      </div>
+    );
+  }
+
+  const DemoContainer = () => {
+  
+    return (
+        <ComponentContainer 
+            OverviewComponent={OverviewComponent}
+            CodeComponent={CodeComponent}
+            DemoComponent={DemoComponent}
+            componentName="Upload Component"
+        />
+    );
+  }
+
+export default DemoContainer;
